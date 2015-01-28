@@ -3,7 +3,7 @@
  * credit: Chris Continanza (csquared)
  */
 
-#include "rest_client.h"
+#include "spark-restclient.h"
 
 RestClient client = RestClient("your-rest-server.com");
 
