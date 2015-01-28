@@ -1,0 +1,8 @@
+{
+    "name": "spark-restclient",
+    "version": "0.1.1",
+    "author": "https://github.com/llad",
+    "license": "MIT",
+    "description": "HTTP Request library for the Spark Core"
+
+}
