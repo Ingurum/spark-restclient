@@ -10,7 +10,7 @@
 
 */
 
-#include "rest_client.h"
+#include "spark-restclient.h"
 
 #ifdef HTTP_DEBUG
 #define HTTP_DEBUG_PRINT(string) (Serial.print(string))
