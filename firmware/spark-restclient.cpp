@@ -20,14 +20,14 @@
 #define HTTP_DEBUG_PRINT(string)
 #endif
 
-RestClient::RestClient(const char* _host){
+SparkRestclient::RestClient(const char* _host){
   host = _host;
   port = 80;
   num_headers = 0;
   contentTypeSet = false;
 }
 
-RestClient::RestClient(const char* _host, int _port){
+SparkRestclient::RestClient(const char* _host, int _port){
   host = _host;
   port = _port;
   num_headers = 0;
@@ -35,68 +35,68 @@ RestClient::RestClient(const char* _host, int _port){
 }
 
 // GET path
-int RestClient::get(const char* path){
+int SparkRestclient::get(const char* path){
   return request("GET", path, NULL, NULL);
 }
 
 //GET path with response
-int RestClient::get(const char* path, String* response){
+int SparkRestclient::get(const char* path, String* response){
   return request("GET", path, NULL, response);
 }
 
 // POST path and body
-int RestClient::post(const char* path, const char* body){
+int SparkRestclient::post(const char* path, const char* body){
   return request("POST", path, body, NULL);
 }
 
 // POST path and body with response
-int RestClient::post(const char* path, const char* body, String* response){
+int SparkRestclient::post(const char* path, const char* body, String* response){
   return request("POST", path, body, response);
 }
 
 // PUT path and body
-int RestClient::put(const char* path, const char* body){
+int SparkRestclient::put(const char* path, const char* body){
   return request("PUT", path, body, NULL);
 }
 
 // PUT path and body with response
-int RestClient::put(const char* path, const char* body, String* response){
+int SparkRestclient::put(const char* path, const char* body, String* response){
   return request("PUT", path, body, response);
 }
 
 // DELETE path
-int RestClient::del(const char* path){
+int SparkRestclient::del(const char* path){
   return request("DELETE", path, NULL, NULL);
 }
 
 // DELETE path and response
-int RestClient::del(const char* path, String* response){
+int SparkRestclient::del(const char* path, String* response){
   return request("DELETE", path, NULL, response);
 }
 
 // DELETE path and body
-int RestClient::del(const char* path, const char* body ){
+int SparkRestclient::del(const char* path, const char* body ){
   return request("DELETE", path, body, NULL);
 }
 
 // DELETE path and body with response
-int RestClient::del(const char* path, const char* body, String* response){
+int SparkRestclient::del(const char* path, const char* body, String* response){
   return request("DELETE", path, body, response);
 }
 
-void RestClient::write(const char* string){
+void SparkRestclient::write(const char* string){
   HTTP_DEBUG_PRINT(string);
   client.print(string);
 }
 
-void RestClient::setHeader(const char* header){
+void SparkRestclient::setHeader(const char* header){
   headers[num_headers] = header;
   num_headers++;
 }
 
 // The mother- generic request method.
 //
-int RestClient::request(const char* method, const char* path,
+int SparkRestclient::request(const char* method, const char* path,
                   const char* body, String* response){
 
   HTTP_DEBUG_PRINT("HTTP: connect\n");
@@ -157,7 +157,7 @@ int RestClient::request(const char* method, const char* path,
   }
 }
 
-int RestClient::readResponse(String* response) {
+int SparkRestclient::readResponse(String* response) {
 
   // an http request ends with a blank line
   boolean currentLineIsBlank = true;
